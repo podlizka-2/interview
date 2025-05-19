@@ -1,185 +1,156 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <title>Мое портфолио</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-         /* Контейнер для всей страницы */
-         .container {
-            display: flex;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8" />
+<title>Мое портфолио</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Для фото сбоку */
-        .profile-photo {
-            position: fixed; /* фиксированное позиционирование */
-            top: 0;          /* у самого верха */
-            left: 0;         /* слева (или right: 0; для справа) */
-            width: 200px;    /* ширина блока с фото */
-            height: 100%;    /* высота на всю высоту окна */
-            background-color: #726f6f; /* фон под фото, по желанию */
-            display: flex;
-            align-items: start; /* выравнивание по верху внутри блока */
-            justify-content: center;
-            padding: 10px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* тень для отделения от контента */
-            z-index: 1000;   /* чтобы было поверх остального контента */
-        }
+    /* Контейнер для всей страницы */
+    .container {
+        display: flex;
+        flex-direction: column; /* делаем колонку */
+        align-items: center; /* центрируем по горизонтали */
+        min-height: 100vh;
+    }
 
-        /* Фото внутри блока */
-        .profile-photo img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%; /* по желанию — круглая форма */
-        }
-        
-        /* Фото */
-        .profile-photo img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%; /* круглая форма, по желанию */
-        }
+    /* Блок слева - фото (по центру) */
+    .profile-photo {
+        width: 200px; /* ширина блока с фото */
+        padding: 10px;
+        background-color: #ff9d9d; /* фон под фото */
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        margin-top: 20px; /* отступ сверху */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        border-radius: 50%; /* делаем фото круглым при необходимости */
+    }
 
-        /* Основной контент */
-        .content {
-            flex: 1; /* занимает остальную часть */
-            padding: 20px;
-        }
-        /* Контейнер для контактов и соцсетей */
-        .contacts-socials {
-            display: flex; /* расположение рядом */
-            gap: 40px;     /* расстояние между блоками */
-        }
+    .profile-photo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%; /* круглая форма */
+    }
 
-        /* Стиль блока контактов */
-        .contacts {
-            flex: 1; /* занимает доступное пространство */
-        }
+    /* Основной контент по центру */
+    .main-content {
+        max-width: 800px;
+        width: 90%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        margin-top: 20px; /* отступ сверху */
+    }
 
-        /* Стиль блока соцсетей */
-        .socials {
-            flex: 1; /* занимает доступное пространство */
-        }
+    header {
+        text-align: center;
+    }
 
-        /* Ссылки соцсетей - стиль */
-        .socials a {
-            display: inline-block;
-            margin-right: 15px;
-            text-decoration: none;
-            color: #333;
-            font-size: 24px; /* размер иконок или текста */
-        }
+    section {
+        margin-top: 20px;
+    }
 
-        /* Можно добавить hover эффект */
-        .socials a:hover {
-            color: #126fda;
-        }
-        
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        h1 {
-            margin-top: 0;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .skill {
-            background-color: #e0e0e0;
-            margin: 10px;
-            padding: 10px 20px;
-            border-radius: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+    h1 {
+        margin-top : 0 ;
+    }
+    
+    .skills {
+         display : flex ;
+         flex-wrap : wrap ;
+         justify-content: center; /* центрируем навыки */
+     }
+     .skill {
+         background-color : #f5bcbc ;
+         margin : 10px ;
+         padding : 10px 20px ;
+         border-radius : 20px ;
+     }
+     
+     footer {
+         text-align : center ;
+         padding :10px ;
+         background-color : #e69292 ;
+         color : white ;
+         margin-top: 30px; /* отступ сверху для футера */
+     }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Блок с фото -->
-        <div class="profile-photo">
-            <!-- Замените src на путь к вашей фотографии -->
-            <img src="/static/images/your_photo.jpg" alt="Мое фото" />
-        </div>
+<div class="container">
     
-        <!-- Основной контент -->
-        <div class="content">
+    <!-- Фото по центру -->
+    <div class="profile-photo">
+      <img src="/static/images/your_photo.jpg" alt="Мое фото" />
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content">
 <header>
-    <h1>Елизавета Нестеренко</h1>
-    <p>Site Reliability Engineer | Python разработчик </p>
+<h1>Елизавета Нестеренко</h1>
+<p>Site Reliability Engineer | Python разработчик </p>
 </header>
 
 <section>
-    <h2>О себе</h2>
-    <p> 
-    Разработка веб-приложений на языке Python с использованием Django и Django Rest Framework, 
-    верстка бэкенда HTML и CSS, создание баз данных SQL (Использование вложенных запросов  
-    внутри инструкции SELECT, INSERT, UPDATE или DELETE, 
-    работа с компанентами SELECT (FROM, WHERE, GROUP BY, HAVING.)), 
-    работа с внешниим API, запуск приложений в docker-контейнерах, 
-    веб- и обратный прокси-сервер Apche: установка и настройка. 
-    Стремлюсь развиваться и создавать качественные проекты.
-    </p>
+<h2>О себе</h2>
+<p>Разработка RESTful API и серверных приложений с использованием Django и Django REST Framework</p>
+
+<p>Создание и поддержка серверной логики, верстка HTML-шаблонов и стилизация с помощью CSS</p>
+    
+<p>Проектирование, оптимизация и управление реляционными базами данных SQL, написание вложенных запросов (подзапросы, агрегатные функции, группировка)</p>
+    
+<p>Реализация сложных SQL-операций: SELECT, INSERT, UPDATE, DELETE с использованием JOIN, подзапросов и оконных функций</p>
+    
+<p>Интеграция внешних API через REST и SOAP интерфейсы для расширения функциональности приложений</p>
+    
+<p>Контейнеризация приложений с помощью Docker, настройка Docker Compose </p>
+    
+<p>Настройка и управление веб-серверами Apache: проксирование запросов, настройка обратного прокси, SSL-терминация</p>
+<p>Стремлюсь развиваться и создавать качественные проекты.</p>
 </section>
 
 <section>
-    <h2>Навыки</h2>
-    <div class="skills">
-        <div class="skill">Python</div>
-        <div class="skill">Django</div>
-        <div class="skill">HTML & CSS</div>
-        <div class="skill">GitHab</div>
-        <div class="skill">Docker</div>
-    </div>
+<h2>Навыки</h2>
+<div class="skills">
+<div class="skill">Python</div>
+<div class="skill">Django</div>
+<div class="skill">Django Framework</div>
+<div class="skill">SQLite</div>
+<div class="skill">HTML & CSS</div>
+<div class="skill">GitHub</div>
+<div class="skill">Docker</div>
+<div class="skill">Bash</div>
+<div class="skill">Pytest</div>
+<div class="skill">Алгоритмы и структуры данных</div>
+<div class="skill">API</div>
+<div class="skill">Linux</div>
+</div>
 </section>
 
 <section>
-    <div class="contacts-socials"></div>
-    <h2>Контакты</h2>
-    <p>Email: n_liza@icloud.com</p>
-    <p>Телефон: +7 (993) 513-40-61</p>
-    <!-- Социальные сети -->
-    <div class="socials">
-        <h2>Социальные сети</h2>
-        
-        <!-- Ссылки на соцсети -->
-        <a href="https://habr.com/ru/users/yourusername/" target="_blank" title="Хабр">📝</a>
-        <a href="https://github.com/yourusername" target="_blank" title="Гитхаб">🐙</a>
-        <a href="https://t.me/yourusername" target="_blank" title="Телеграм">📱</a>
-        <a href="https://hh.ru/resume/yourresumeid" target="_blank" title="HH.ru">💼</a>
-        
-        <!-- Можно заменить эмодзи на иконки или изображения -->
-        
-    </div>
+<h2>Контакты</h2>
+<p>Email: n_liza@icloud.com</p>
+<p>Телефон: +7 (993) 513-40-61</p>
+
+<!-- Социальные сети -->
+<h2>Социальные сети</h2>
+<div class="socials">
+<a href="https://career.habr.com/lizokpython" target="_blank" title="Хабр"><img src="static/images/habr.jpg" width="24" height="24"></a>
+<a href="https://github.com/podlizka-2" target="_blank" title="Гитхаб"><img src="static/images/github.png" width="24" height="24"></a>
+<a href="https://t.me/lizkaee" target="_blank" title="Телеграм"><img src="static/images/Telegram.webp" width="24" height="24"></a>
+<a href="https://ekaterinburg.hh.ru/resume/253a6627ff0ed1da900039ed1f566378394638" target="_blank" title="HH.ru"><img src="static/images/HeadHunter.png" width="24" height="24"></a>
+</div>
+
 </section>
 
+<footer>&copy; 2025 "Если код на Python работает — значит, ты уже почти волшебник."</footer>
 
-<footer>
-    &copy; 2025 "Если код на Python работает — значит, ты уже почти волшебник."
-
-</footer>
-</div> <!-- конец content -->
+   </div> <!-- конец main-content -->
 </div> <!-- конец container -->
 </body>
 </html>
