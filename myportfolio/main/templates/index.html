@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Мое портфолио</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+         /* Контейнер для всей страницы */
+         .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Для фото сбоку */
+        .profile-photo {
+            position: fixed; /* фиксированное позиционирование */
+            top: 0;          /* у самого верха */
+            left: 0;         /* слева (или right: 0; для справа) */
+            width: 200px;    /* ширина блока с фото */
+            height: 100%;    /* высота на всю высоту окна */
+            background-color: #726f6f; /* фон под фото, по желанию */
+            display: flex;
+            align-items: start; /* выравнивание по верху внутри блока */
+            justify-content: center;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* тень для отделения от контента */
+            z-index: 1000;   /* чтобы было поверх остального контента */
+        }
+
+/* Фото внутри блока */
+.profile-photo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* по желанию — круглая форма */
+}
+        
+        /* Фото */
+        .profile-photo img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; /* круглая форма, по желанию */
+        }
+
+        /* Основной контент */
+        .content {
+            flex: 1; /* занимает остальную часть */
+            padding: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skill {
+            background-color: #e0e0e0;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Блок с фото -->
+        <div class="profile-photo">
+            <!-- Замените src на путь к вашей фотографии -->
+            <img src="/static/images/your_photo.jpg" alt="Мое фото" />
+        </div>
+    
+        <!-- Основной контент -->
+        <div class="content">
+<header>
+    <h1>Елизавета Нестеренко</h1>
+    <p>Site Reliability Engineer | Python разработчик </p>
+</header>
+
+<section>
+    <h2>О себе</h2>
+    <p> 
+    Разработка веб-приложений на языке Python с использованием Django и Django Rest Framework, 
+    верстка бэкенда HTML и CSS, создание баз данных SQL (Использование вложенных запросов  
+    внутри инструкции SELECT, INSERT, UPDATE или DELETE, 
+    работа с компанентами SELECT (FROM, WHERE, GROUP BY, HAVING.)), 
+    работа с внешниим API, запуск приложений в docker-контейнерах, 
+    веб- и обратный прокси-сервер Apche: установка и настройка. 
+    Стремлюсь развиваться и создавать качественные проекты.
+    </p>
+</section>
+
+<section>
+    <h2>Навыки</h2>
+    <div class="skills">
+        <div class="skill">Python</div>
+        <div class="skill">Django</div>
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">GitHab</div>
+        <div class="skill">Docker</div>
+    </div>
+</section>
+
+<section>
+    <h2>Контакты</h2>
+    <p>Email: n_liza@icloud.com</p>
+    <p>Телефон: +7 (993) 513-40-61</p>
+</section>
+
+<footer>
+    &copy; 2025 Елизавета Нестеренко
+</footer>
+</div> <!-- конец content -->
+</div> <!-- конец container -->
+</body>
+</html>
