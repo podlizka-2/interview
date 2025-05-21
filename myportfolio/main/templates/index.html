@@ -3,82 +3,147 @@
 <head>
 <meta charset="UTF-8" />
 <title>Мое портфолио</title>
+<!-- Подключение шрифтов -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
 <style>
+    /* Общие стили */
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #fafafa; /* светлый приятный оттенок */
         margin: 0;
         padding: 0;
+        color: #333;
     }
 
     /* Контейнер для всей страницы */
     .container {
         display: flex;
-        flex-direction: column; /* делаем колонку */
-        align-items: center; /* центрируем по горизонтали */
+        flex-direction: column;
+        align-items: center;
         min-height: 100vh;
     }
 
-    /* Блок слева - фото (по центру) */
+    /* Фото по центру */
     .profile-photo {
-        width: 200px; /* ширина блока с фото */
+        width: 200px;
         padding: 10px;
-        background-color: #ff9d9d; /* фон под фото */
+        background-color: #726f6f1c; /* полупрозрачный фон */
         display: flex;
         align-items: start;
         justify-content: center;
-        margin-top: 20px; /* отступ сверху */
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        border-radius: 50%; /* делаем фото круглым при необходимости */
+        margin-top: 20px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .profile-photo img {
         max-width: 100%;
         height: auto;
-        border-radius: 50%; /* круглая форма */
+        border-radius: 50%;
     }
 
-    /* Основной контент по центру */
+    /* Основной блок */
     .main-content {
         max-width: 800px;
         width: 90%;
         padding: 20px;
-        background-color: white;
-        border-radius: 8px;
-        margin-top: 20px; /* отступ сверху */
+        background-color: #ffffff; /* светлый фон */
+        border-radius: 12px; /* скругление */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* тень */
+        margin-top: 20px;
     }
 
     header {
         text-align: center;
     }
 
+    h1 {
+        font-family: 'Playfair Display SC', serif; /* шрифт для заголовков */
+        font-size: 36px; /* крупный размер */
+        color: #9c2d2d; /* яркий цвет */
+        margin-top : 0 ;
+    }
+
+    h2 {
+        font-family:'Montserrat', sans-serif;
+        font-size:28px;
+        color:#b92930; /* яркий цвет для подзаголовков */
+    }
+
     section {
         margin-top: 20px;
     }
 
-    h1 {
-        margin-top : 0 ;
+    p {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        line-height:1.6;
     }
-    
+
+    /* Навыки */
     .skills {
-         display : flex ;
-         flex-wrap : wrap ;
-         justify-content: center; /* центрируем навыки */
-     }
-     .skill {
-         background-color : #f5bcbc ;
-         margin : 10px ;
-         padding : 10px 20px ;
-         border-radius : 20px ;
-     }
-     
-     footer {
-         text-align : center ;
-         padding :10px ;
-         background-color : #e69292 ;
-         color : white ;
-         margin-top: 30px; /* отступ сверху для футера */
-     }
+        display : flex ;
+        flex-wrap : wrap ;
+        justify-content:center; 
+    }
+    .skill {
+        background-color : #e0e0e0 ;
+        margin : 10px ;
+        padding : 10px 20px ;
+        border-radius : 20px ;
+        font-weight:bold;
+    }
+
+    footer {
+        text-align : center ;
+        padding :10px ;
+        background-color : #333 ;
+        color : white ;
+        margin-top:30px; 
+    }
+
+     /* Стили для соцсетей (иконки) */
+    .socials {
+        display:flex;
+        gap:40px; 
+        justify-content:center; 
+        margin-top:40px;
+
+        transition: transform 0.3s, box-shadow 0.3s; /* плавность эффектов при наведении */
+    }
+    .socials a img {
+        width:40px;
+        height:auto;
+        transition: transform 0.3s, box-shadow 0.3s; 
+    }
+     /* Эффект при наведении на иконки соцсетей */
+    .socials a:hover img {
+        transform: scale(1.2);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .term {
+        position: relative;
+    }
+
+    .term::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #000000;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+
+    .term:hover::after {
+        opacity: 1;
+    }
 </style>
 </head>
 <body>
@@ -86,49 +151,91 @@
     
     <!-- Фото по центру -->
     <div class="profile-photo">
-      <img src="/static/images/your_photo.jpg" alt="Мое фото" />
+        <img src="/static/images/your_photo.jpg" alt="Мое фото" />
     </div>
 
     <!-- Основной контент -->
     <div class="main-content">
-<header>
-<h1>Елизавета Нестеренко</h1>
-<p>Site Reliability Engineer | Python разработчик </p>
+        <header>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet" />
+        <h1>Елизавета Нестеренко</h1>
+        <p>Site Reliability Engineer | Python разработчик </p>
+
+    <!-- Социальные сети сразу после имени -->
+    <div class="socials">
+        <a href="https://career.habr.com/lizokpython" target="_blank" title="Хабр">
+        <img src="static/images/habr.jpg" alt="Хабр" />
+        </a>
+        <a href="https://github.com/podlizka-2" target="_blank" title="Гитхаб">
+        <img src="static/images/github.png" alt="Гитхаб" />
+        </a>
+        <a href="https://t.me/lizkaee" target="_blank" title="Телеграм">
+        <img src="static/images/Telegram.webp" alt="Телеграм" />
+        </a>
+        <a href="https://ekaterinburg.hh.ru/resume/253a6627ff0ed1da900039ed1f566378394638" target="_blank" title="HH.ru">
+        <img src="static/images/HeadHunter.png" alt="HeadHunter" />
+        </a>
+    </div>
 </header>
 
+<!-- Блок "О себе" -->
 <section>
 <h2>О себе</h2>
-<p>Разработка RESTful API и серверных приложений с использованием Django и Django REST Framework</p>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+<p>Разработка REST API и серверных приложений с использованием Django и Django REST Framework</p>
 
 <p>Создание и поддержка серверной логики, верстка HTML-шаблонов и стилизация с помощью CSS</p>
-    
+
 <p>Проектирование, оптимизация и управление реляционными базами данных SQL, написание вложенных запросов (подзапросы, агрегатные функции, группировка)</p>
-    
+
 <p>Реализация сложных SQL-операций: SELECT, INSERT, UPDATE, DELETE с использованием JOIN, подзапросов и оконных функций</p>
-    
-<p>Интеграция внешних API через REST и SOAP интерфейсы для расширения функциональности приложений</p>
-    
+
 <p>Контейнеризация приложений с помощью Docker, настройка Docker Compose </p>
-    
+
 <p>Настройка и управление веб-серверами Apache: проксирование запросов, настройка обратного прокси, SSL-терминация</p>
+
 <p>Стремлюсь развиваться и создавать качественные проекты.</p>
 </section>
 
 <section>
 <h2>Навыки</h2>
 <div class="skills">
-<div class="skill">Python</div>
-<div class="skill">Django</div>
-<div class="skill">Django Framework</div>
-<div class="skill">SQLite</div>
-<div class="skill">HTML & CSS</div>
-<div class="skill">GitHub</div>
-<div class="skill">Docker</div>
-<div class="skill">Bash</div>
-<div class="skill">Pytest</div>
-<div class="skill">Алгоритмы и структуры данных</div>
-<div class="skill">API</div>
-<div class="skill">Linux</div>
+<div class="skill">
+    <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Python">Python</a> 
+</div>
+<div class="skill">    
+    <a href="https://docs.djangoproject.com/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Django">Django</a> 
+</div>
+<div class="skill"> 
+    <a href="https://www.django-rest-framework.org/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Django REST Framework">Django REST Framework</a>
+</div>
+<div class="skill">
+    <a href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="SQLite">SQLite</a> 
+</div>
+<div class="skill">
+    <a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="HTML & CSS">HTML & CSS</a> 
+</div>
+<div class="skill">
+    <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="GitHub">GitHub</a> 
+</div>
+<div class="skill">
+    <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Docker">Docker</a> 
+</div>
+<div class="skill">
+    <a href="https://ru.wikipedia.org/wiki/Bash" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Bash">Bash</a> 
+</div>
+<div class="skill">
+    <a href="https://docs.pytest.org/en/stable/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Pytest">Pytest</a> 
+</div>
+<div class="skill">
+    <a href="https://pythontalk.olegtalks.ru/data_structures_algorithms" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="Алгоритмы и структуры данных">Алгоритмы и структуры данных</a> 
+</div>
+<div class="skill">
+    <a href="https://ru.wikipedia.org/wiki/API/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="API">API</a> 
+</div>
+<div class="skill">
+    <a href="https://www.linux.org.ru/" target="_blank" rel="noopener noreferrer" class="term" data-tooltip="API">Linux</a> 
+</div>
 </div>
 </section>
 
@@ -136,21 +243,13 @@
 <h2>Контакты</h2>
 <p>Email: n_liza@icloud.com</p>
 <p>Телефон: +7 (993) 513-40-61</p>
-
-<!-- Социальные сети -->
-<h2>Социальные сети</h2>
-<div class="socials">
-<a href="https://career.habr.com/lizokpython" target="_blank" title="Хабр"><img src="static/images/habr.jpg" width="24" height="24"></a>
-<a href="https://github.com/podlizka-2" target="_blank" title="Гитхаб"><img src="static/images/github.png" width="24" height="24"></a>
-<a href="https://t.me/lizkaee" target="_blank" title="Телеграм"><img src="static/images/Telegram.webp" width="24" height="24"></a>
-<a href="https://ekaterinburg.hh.ru/resume/253a6627ff0ed1da900039ed1f566378394638" target="_blank" title="HH.ru"><img src="static/images/HeadHunter.png" width="24" height="24"></a>
-</div>
-
 </section>
 
 <footer>&copy; 2025 "Если код на Python работает — значит, ты уже почти волшебник."</footer>
 
    </div> <!-- конец main-content -->
+
+
 </div> <!-- конец container -->
 </body>
 </html>
